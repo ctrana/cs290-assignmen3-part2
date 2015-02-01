@@ -1,4 +1,4 @@
-var gists_array =[];
+
 
 function requestGists(){
   var httpRequest = new XMLHttpRequest;
@@ -22,12 +22,11 @@ function requestGists(){
  function createList(gistsArr) {
    var ul = document.getElementById( "results");
      for (var i = 0; i <gistsArr.length; i++){
-     var li = document.createElement( "li");
-    
+     var li = document.createElement("li");
+     li.id = "x" + i;
 	if(gistsArr[i].hasOwnProperty.call(gistsArr[i],'description') ===  false)
 		{
-			li.innerHTML = '<a href='+gistsArr[i].url + '>' + "No Description" + '</a>' 
-			'<input type='button' name="save" onclick='saveToFav()' value="Save to Favorites">';
+			li.innerHTML = '<a href='+gistsArr[i].url + '>' + 'No Description' + '</a>';
 
 		}
 		else if(gistsArr[i].description === "" )
@@ -38,10 +37,15 @@ function requestGists(){
 		{
 			li.innerHTML = '<a href= ' + gistsArr[i].url+'>' + gistsArr[i].description+'</a>';
 		}
-     ul.appendChild(li);
+	this.favButton = document.createElement('button'); 
+    this.favButton.innerHTML = "Save to Favorites";
+    this.favButton.onclick = function () {
+	//par = favButton.parentNode;
+      localStorage.setItem(favButton.parentNode.id, favButton.parentNode.innerHTML);
+	}
+	li.appendChild (this.favButton);
+    ul.appendChild(li);
      }
  
 }
 
-function saveToFav (){
-}
