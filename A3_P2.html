@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>A3_P2</title>
+    <script src="A3_P2.js"></script>
+  </head>
+  <body>
+    <div>
+      <P> How many pages (1-5) of Gists would you like to see?</P>
+	  <div>
+	    <select name="pageSelect">
+		  <option value="1">1</option>
+		  <option value="2">2</option>
+		  <option value="3">3</option>
+		  <option value="4">4</option>
+		  <option value="5">5</option>
+        </select>		  
+      </div>
+	  
+      <br>	 
+      
+      <div>
+        <fieldset>
+          <legend>Select which language you would like to see:  </legend>
+          <input type="checkbox" name="langSelect" value="Python"><label>Python</label><br>
+          <input type="checkbox" name="langSelect" value="JSON"><label>JSON</label><br>
+          <input type="checkbox" name="langSelect" value="JavaScript"><label>JavaScript</label><br>
+          <input type="checkbox" name="langSelect" value="SQL"><label>SQL</label><br> 
+          <input type="checkbox" name="langSelect" value="All"><label>ALL</label><br>
+        </fieldset>
+      </div>
+	  
+      <input type="button" name="requestGists" onclick="requestGists()" value = "Request">
+    </div>
+	
+  <br>
+  
+  <section>
+    <h>Favorites</h>
+    <p>
+      <div id="list"></div>
+    </p>
+  </section>
+  <br>
+  <section>
+    <h>Results</h>
+    
+      <ul id="results">
+      </ul>
+    
+  </section>
+ </body>
+</html>
